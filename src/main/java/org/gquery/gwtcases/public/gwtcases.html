@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GwtQuery: GwtCases plugin example</title>
+<style type="text/css">
+</style>
+  <meta name="gwt:onLoadErrorFn" content="onGwtModuleLoadError"/>
+  <meta name="gwt:onPropertyErrorFn" content="onGwtModuleLoadError"/>
+  
+  <script type="text/javascript">
+      function onGwtModuleLoadError(message) {
+         alert("onGwtModuleLoadError(" + message + ")");
+      }
+  </script>
+    <script language="javascript" src="gwtcases.nocache.js"></script>
+</head>
+  <body>
+    <div>Hello world</div>
+      <ul>
+    <li>
+        <div>
+            <span>span in div</span>
+        </div>
+        <span>span out of div</span>
+    </li>
+</ul>
+  <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+
+  </body>
+</html>

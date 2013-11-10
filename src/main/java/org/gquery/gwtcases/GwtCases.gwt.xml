@@ -1,0 +1,35 @@
+<module rename-to='gwtcases'>
+    <inherits name='com.google.gwt.query.Query'/>
+<!--     <inherits name='elemental.Elemental'/> -->
+    <inherits name='org.timepedia.exporter.Exporter'/>
+    <inherits name='gwtquery.plugins.enhance.Enhance'/>
+    <inherits name="com.google.web.bindery.requestfactory.RequestFactory" />
+    
+    <inherits name="com.googlecode.mgwt.MGWTMin"/>
+    <set-property name="mgwt.os" value="desktop" />
+    <set-property name="mobile.user.agent" value="not_mobile" />
+    
+    <set-property name="export" value="yes"/>
+    
+    <inherits name="gwtupload.GWTUpload"/>
+    
+    <entry-point class='org.gquery.gwtcases.client.GwtCases'/>
+    
+<!--     <set-property name="user.agent" value="safari,ie6" /> -->
+<!--     <add-linker name='std' /> -->
+    <add-linker name='xsiframe' />
+    <set-configuration-property name="user.agent.runtimeWarning" value="true"/>
+    
+      <replace-with class="org.gquery.gwtcases.client.cases.deferred.MyEntryPoint.AppIE">
+        <when-type-is class="org.gquery.gwtcases.client.cases.deferred.MyEntryPoint.App"/>
+        <any>
+             <when-property-is name="user.agent" value="ie6"/>
+             <when-property-is name="user.agent" value="ie8"/>
+             <when-property-is name="user.agent" value="ie9"/>
+             <when-property-is name="user.agent" value="safari"/>
+        </any>
+      </replace-with>
+    
+    
+</module>
+

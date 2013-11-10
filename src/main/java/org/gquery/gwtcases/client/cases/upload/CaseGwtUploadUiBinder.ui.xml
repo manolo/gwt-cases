@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:up="urn:import:gwtupload.client"
+    >
+  <ui:style>
+    .important {
+    	font-weight: bold;
+    }
+  </ui:style>
+  <g:HTMLPanel>
+          <up:SingleUploader type="BUTTON" ui:field="uploader"></up:SingleUploader>
+    <br/>
+    Hello,
+  </g:HTMLPanel>
+</ui:UiBinder> 
