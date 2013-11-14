@@ -151,16 +151,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <logLevel>${gwt.loglevel}</logLevel>
                     <style>${gwt.outputstyle}</style>
                     <gwtVersion>${gwtversion}</gwtVersion>
-                    <compileReport>true</compileReport>
                     <runTarget>gwtcases/gwtcases.html</runTarget>
                     <hostedWebApp>${project.build.directory}/${project.build.finalName}</hostedWebApp>
-                    <bindAddress>0.0.0.0</bindAddress>
                     <codeServerWorkDir>${project.build.directory}</codeServerWorkDir>
-                    <gen>${project.basedir}/target/gen</gen>
-                    <disableClassMetadata>true</disableClassMetadata>
-                    <disableCastChecking>true</disableCastChecking>
-                    <gwt.draftCompile>false</gwt.draftCompile>
-                    <gwt.enableClosureCompiler>true</gwt.enableClosureCompiler>
+                    <compileReport>${gwt.compiler.compileReport}</compileReport>
+                    <compilerMetrics>${gwt.compiler.compileReport}</compilerMetrics>
+                    <draftCompile>${gwt.draftCompile}</draftCompile>
+                    <enableClosureCompiler>${gwt.enableClosureCompiler}</enableClosureCompiler>
+                    <disableRunAsync>${gwt.disableRunAsync}</disableRunAsync>
+                    <localWorkers>3</localWorkers>
+                    <fragmentCount>20</fragmentCount>
+                    <bindAddress>0.0.0.0</bindAddress>
+                    <disableClassMetadata>${gwt.disableClassMetadata}</disableClassMetadata>
+                    <disableCastChecking>${gwt.disableCastChecking}</disableCastChecking>
+                    <extraJvmArgs>-Xmx2048m -XX:MaxPermSize=384m </extraJvmArgs>
                 </configuration>
                 <executions>
                     <execution>
