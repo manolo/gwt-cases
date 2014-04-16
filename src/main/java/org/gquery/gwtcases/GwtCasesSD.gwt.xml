@@ -1,0 +1,5 @@
+<module rename-to='gwtcases'>
+    <inherits name='org.gquery.gwtcases.GwtCases'/>
+    <set-property name="user.agent" value="safari" />
+</module>
+

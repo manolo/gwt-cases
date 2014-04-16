@@ -14,7 +14,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     		<dependency>
     			<groupId>com.googlecode.gwtupload</groupId>
     			<artifactId>gwtupload</artifactId>
-    			<version>0.6.7-SNAPSHOT</version>
+    			<version>1.0.1-SNAPSHOT</version>
     			<type>pom</type>
     			<scope>compile</scope>
     		</dependency>
@@ -24,12 +24,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <maven.compiler.source>1.6</maven.compiler.source>
       <maven.compiler.target>1.6</maven.compiler.target>
-      <gQueryVersion>1.4.0-SNAPSHOT</gQueryVersion>
-      <gwtversion>2.5.1</gwtversion>
-      <gwtmaven>2.5.1</gwtmaven>
+      <gQueryVersion>1.4.0</gQueryVersion>
+      <gwtversion>2.6.0</gwtversion>
+      <gwtmaven>2.6.0</gwtmaven>
       <gwt.outputstyle>OBF</gwt.outputstyle>
       <exporterVersion>2.5.0-SNAPSHOT</exporterVersion>
       <mgwt.version>1.2.0-SNAPSHOT</mgwt.version>
+      <gwt.loglevel>ERROR</gwt.loglevel>
     </properties>
 
     <repositories>
@@ -69,20 +70,24 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <dependency>
             <groupId>com.googlecode.gwtquery.plugins</groupId>
             <artifactId>enhance-plugin</artifactId>
-            <scope>provided</scope>
             <version>1.0.5</version>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
             <version>${gwtversion}</version>
-            <scope>provided</scope>
         </dependency>        
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>
             <version>${gwtversion}</version>
-            <scope>provided</scope>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-codeserver</artifactId>
+            <version>${gwtversion}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
@@ -94,25 +99,21 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-elemental</artifactId>
             <version>${gwtversion}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.googlecode.gwtquery</groupId>
             <artifactId>gwtquery</artifactId>
             <version>${gQueryVersion}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
           <groupId>org.timepedia.exporter</groupId>
           <artifactId>gwtexporter</artifactId>
           <version>${exporterVersion}</version>
-          <scope>provided</scope>
         </dependency>         
         <dependency>
               <groupId>com.googlecode.mgwt</groupId>
               <artifactId>mgwt</artifactId>
               <version>${mgwt.version}</version>
-              <scope>provided</scope>
         </dependency>        
         <!-- GWT 2.3.0 depends on these -->
         <dependency>
@@ -129,7 +130,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <dependency>
             <groupId>com.googlecode.gwtupload</groupId>
             <artifactId>gwtupload</artifactId>
-            <version>0.6.7-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>        
     </dependencies>
     <build>
@@ -246,6 +247,21 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                 </execution>
               </executions>
             </plugin>
+                  <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.google.gwt.dev.codeserver.IncrementalCompiler</mainClass>
+        </configuration>
+      </plugin>
         </plugins>
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
     </build>

@@ -30,7 +30,7 @@ public class CaseExportFunction implements EntryPoint {
 
   @ExportPackage("m")
   @Export("MyClass")
-  static class MyClass implements Exportable {
+  public static class MyClass implements Exportable {
     public MyClass(String s) {
       // TODO Auto-generated constructor stub
     }

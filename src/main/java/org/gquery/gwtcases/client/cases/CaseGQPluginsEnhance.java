@@ -44,7 +44,7 @@ public class CaseGQPluginsEnhance implements EntryPoint {
     $("<button>click</button>").appendTo(document).click(new Function(){public void f() {
       TextBox b = $(".pick").widget();
       b.setValue("#444", true);
-    }});
+    }}).as(Widgets);
   }
   
 }
